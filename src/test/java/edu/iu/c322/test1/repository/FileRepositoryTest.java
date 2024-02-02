@@ -15,15 +15,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class FileRepositoryTest {
 
 
-    @BeforeAll
-    static void setup() throws IOException {
-        Files.deleteIfExists(Paths.get("questions.txt"));
-    }
-
-    @AfterAll
-    static void cleanup() throws IOException {
-        Files.delete(Paths.get("questions.txt"));
-    }
+    //@BeforeAll
+//    static void setup() throws IOException {
+//        Files.deleteIfExists(Paths.get("questions.txt"));
+//    }
+//
+//    @AfterAll
+//    static void cleanup() throws IOException {
+//        Files.delete(Paths.get("questions.txt"));
+//    }
 
     @Test
     void addQuestion1() {

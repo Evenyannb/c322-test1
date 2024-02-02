@@ -40,12 +40,10 @@ public class FileRepository {
         List<Question> result = new ArrayList<>();
         Path path = Paths.get(QUESTION_DATABASE_NAME);
         if (Files.exists(path)) {
-            List<Integer> id = new ArrayList<>();
             List<String> data = Files.readAllLines(path);
             for (String line : data) {
                 Question q = Question.fromLine(line);
                 result.add(q);
-
             }
         }
         return result;
