@@ -2,6 +2,7 @@ package edu.iu.c322.test1.repository;
 
 import edu.iu.c322.test1.model.Question;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@Repository
 public class FileRepository {
     private String IMAGES_FOLDER_PATH = "quizzes/questions/images/";
     private static final String NEW_LINE = System.lineSeparator();
@@ -38,10 +40,12 @@ public class FileRepository {
         List<Question> result = new ArrayList<>();
         Path path = Paths.get(QUESTION_DATABASE_NAME);
         if (Files.exists(path)) {
+            List<Integer> id = new ArrayList<>();
             List<String> data = Files.readAllLines(path);
             for (String line : data) {
                 Question q = Question.fromLine(line);
                 result.add(q);
+
             }
         }
         return result;
